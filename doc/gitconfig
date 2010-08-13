@@ -1,0 +1,16 @@
+[user]
+	name = Seu Nome Aui
+	email = O email que vc cadastrou no github
+[core]
+	editor = vim
+[merge]
+	tool = meld
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	lg = log
+	unstage = reset HEAD --
+[color]
+	ui = true
