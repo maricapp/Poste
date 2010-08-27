@@ -2,19 +2,15 @@
 
 use Mojolicious::Lite;
 
-my $index = 'index';
+plugin 'tt_renderer' => {
+    'template_options' => {
+        'WRAPPER' => 'index'
+    }
+};
 
-get '/' => sub {
-    my $self = shift;
-    
-    $self->{'stash'}{'page'} = 'home';
-} => $index;
+get '/' => 'home';
 
-get '/post/:id' => [ id => qr/\d+/ ] => sub {
-    my $self = shift;
-    
-    $self->{'stash'}{'page'} = 'post: ' . $self->param('id');
-} => $index;
+get '/foo' => 'foo';
 
 
 shagadelic;
