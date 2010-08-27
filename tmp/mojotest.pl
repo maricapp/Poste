@@ -12,5 +12,4 @@ get '/' => 'home';
 
 get '/foo' => 'foo';
 
-
 shagadelic;
