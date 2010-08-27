@@ -8,7 +8,11 @@ plugin 'tt_renderer' => {
     }
 };
 
-get '/' => 'home';
+get '/' => sub {
+    my $self = shift;
+    
+    $self->stash('message' => 'Hello World!!!');
+} => 'home';
 
 get '/foo' => 'foo';
 
