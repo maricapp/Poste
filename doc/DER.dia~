@@ -65,13 +65,13 @@
   <dia:layer name="Segundo Plano" visible="true" active="true">
     <dia:object type="Flowchart - Box" version="0" id="O0">
       <dia:attribute name="obj_pos">
-        <dia:point val="10,14.2"/>
+        <dia:point val="10.1,14.2"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.95,14.15;16.9,16.15"/>
+        <dia:rectangle val="10.05,14.15;17,16.15"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="10,14.2"/>
+        <dia:point val="10.1,14.2"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="6.8499999999999996"/>
@@ -97,7 +97,7 @@
             <dia:real val="0.80000000000000004"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="13.425,15.345"/>
+            <dia:point val="13.525,15.345"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000"/>
@@ -155,16 +155,16 @@
     </dia:object>
     <dia:object type="Database - Reference" version="0" id="O2">
       <dia:attribute name="obj_pos">
-        <dia:point val="16.85,15.15"/>
+        <dia:point val="16.95,15.15"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="16.85,15.125;20.05,15.15"/>
+        <dia:rectangle val="16.95,15.125;20.05,15.15"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="16.85,15.15"/>
+        <dia:point val="16.95,15.15"/>
         <dia:point val="18.3483,15.15"/>
         <dia:point val="18.3483,15.125"/>
         <dia:point val="20.05,15.125"/>
