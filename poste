@@ -3,22 +3,18 @@
 use strict;
 use warnings;
 
-use File::Basename 'dirname';
-use File::Spec;
+use Mojolicious::Lite;
 
-use lib join '/', File::Spec->splitdir(dirname(__FILE__)), 'lib';
-use lib join '/', File::Spec->splitdir(dirname(__FILE__)), '..', 'lib';
+plugin 'tt_renderer' => {
+    'template_options' => {
+        'WRAPPER' => 'index'
+    }
+};
 
-# Check if Mojo is installed
-eval 'use Mojolicious::Commands';
-die <<EOF if $@;
-It looks like you don't have the Mojo Framework installed.
-Please visit http://mojolicious.org for detailed installation instructions.
+get '/' => sub {
+    my $self = shift;
+    
+    $self->stash('message' => 'Hello World!!!');
+} => 'home';
 
-EOF
-
-# Application
-$ENV{MOJO_APP} ||= 'Poste';
-
-# Start commands
-Mojolicious::Commands->start;
+shagadelic;
