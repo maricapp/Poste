@@ -1,0 +1,94 @@
+diff -crB ORLite-1.45/Changes ORLite-1.46/Changes
+*** ORLite-1.45/Changes	2010-08-08 07:17:38.000000000 -0300
+--- ORLite-1.46/Changes	2010-09-02 00:16:13.434154567 -0300
+***************
+*** 1,5 ****
+--- 1,8 ----
+  Changes for Perl extension ORLite
+  
++ 1.45 Thu  2 Sep 2010
++     - Adding parameter to enable foreign keys
++ 
+  1.45 Sun  8 Aug 2010
+  	- Adding initial support for cache => $directory (ADAMK)
+  
+diff -crB ORLite-1.45/lib/ORLite.pm ORLite-1.46/lib/ORLite.pm
+*** ORLite-1.45/lib/ORLite.pm	2010-08-08 07:17:38.000000000 -0300
+--- ORLite-1.46/lib/ORLite.pm	2010-09-02 00:58:22.926153154 -0300
+***************
+*** 14,20 ****
+  
+  use vars qw{$VERSION};
+  BEGIN {
+! 	$VERSION = '1.45';
+  }
+  
+  # Support for the 'prune' option
+--- 14,20 ----
+  
+  use vars qw{$VERSION};
+  BEGIN {
+! 	$VERSION = '1.46';
+  }
+  
+  # Support for the 'prune' option
+***************
+*** 194,203 ****
+  }
+  
+  sub connect {
+! 	DBI->connect( \$_[0]->dsn, undef, undef, {
+  		PrintError => 0,
+  		RaiseError => 1,
+  	} );
+  }
+  
+  sub connected {
+--- 194,207 ----
+  }
+  
+  sub connect {
+! 	my \$dbh = DBI->connect( \$_[0]->dsn, undef, undef, {
+  		PrintError => 0,
+  		RaiseError => 1,
+  	} );
++ 	
++ 	\$dbh->do('pragma foreign_keys = on;') if defined $params{enable_fk};
++ 	
++     return \$dbh;
+  }
+  
+  sub connected {
+***************
+*** 965,970 ****
+--- 969,998 ----
+  
+  By default, the C<prune> option is set to false.
+  
++ =head2 enable_fk
++ 
++ Since version 3.6.19 SQLite supports foreign keys constraints. In order to
++ enable this feature SQLite must be compiled with the appropriate options.
++ See SQLite online documentation at L<http://www.sqlite.org/foreignkeys.html>.
++ 
++ However even with the support of foreign keys enabled, to maintain backward
++ compatibility this feature is disactivated by default.
++ 
++ To activate it, in addition to SQLite be compiled properly, you must set the
++ pragma C<foreing_keys> with the value C<ON> for each connection made.
++ 
++ The parameter enable_fk pragma enables the pragma in each connection made in
++ sqlite, forcing him to respect the foreign key constraints.
++ 
++ Note that if SQLite is not compiled with the correct options, enabling this
++ parameter will not have the desired effect. It is your responsibility to
++ verify that your version of sqlite was compiled properly.
++ 
++     use ORLite {
++         'file'      => 'foo.db',
++         'enable_fk  => 1,
++     };
++ 
+  =head1 ROOT PACKAGE METHODS
+  
+  All ORLite root packages receive an identical set of methods for
