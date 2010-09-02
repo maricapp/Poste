@@ -2,7 +2,8 @@
 
 use 5.010;
 use lib 'lib';
+use Data::Dumper;
 
 use Model::DB;
 
-say Model::DB->pragma('foreign_keys');
+say Dumper(Model::DB->get_last_published_posts);
