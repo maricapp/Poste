@@ -33,6 +33,13 @@ use ORLite {
         );
         
         $dbh->do(
+            'create table site_configs (
+                key             text text primary key,
+                value           text not null
+            );'
+        );
+        
+        $dbh->do(
             "insert into authors
                 (username, password, email, full_name)
             values
@@ -44,6 +51,14 @@ use ORLite {
                 (author_id, publish_date, title, content, status)
              values
                 (1, 1234567890, 'First Post', 'Hello World!!!', 3);"
+        );
+        
+        $dbh->do("insert into site_configs (key, value)
+            values ('theme', 'default');"
+        );
+        
+        $dbh->do("insert into site_configs (key, value)
+            values ('posts_per_page', '5');"
         );
     },
 };
@@ -60,7 +75,7 @@ sub get_last_published_posts {
             posts.title,
             posts.content,
             authors.author_id,
-            authors.full_name
+            authors.full_name as author
         from
             posts, authors
         where
@@ -70,6 +85,19 @@ sub get_last_published_posts {
             posts.publish_date desc',
         { Slice => {} },
     );
+}
+
+sub get_site_config {
+    my $self    = shift;
+    my $key     = shift || '';
+    my $value   = '';
+    
+    if ($key) {
+        my $conf = Model::DB::SiteConfigs->load($key);
+        $value = $conf->value if defined $conf;
+    }
+    
+    return $value;
 }
 
 42;
