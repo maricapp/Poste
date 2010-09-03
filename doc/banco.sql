@@ -20,3 +20,8 @@ create table posts (
 );
 
 -- Post status: 1 -> Created, 2 -> Deleted, 3 -> Published
+
+create table site_configs (
+    key             text text primary key,
+    value           text not null
+);

@@ -68,7 +68,7 @@
         <dia:point val="34.1,14.25"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="18.7,13.6;34.1,14.25"/>
+        <dia:rectangle val="17.16,13.6;34.1,14.25"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -77,7 +77,7 @@
         <dia:point val="34.1,14.25"/>
         <dia:point val="31.9,14.25"/>
         <dia:point val="31.9,14.25"/>
-        <dia:point val="18.7,14.25"/>
+        <dia:point val="17.16,14.25"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
@@ -128,7 +128,7 @@
         <dia:point val="9.7,12.05"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.7,12.05;18.7,17.15"/>
+        <dia:rectangle val="9.7,12.05;17.16,17.15"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -137,7 +137,7 @@
         <dia:point val="9.7,12.05"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="9"/>
+        <dia:real val="7.46"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="5.0999999999999996"/>
@@ -193,10 +193,10 @@
       <dia:attribute name="attributes">
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#id#</dia:string>
+            <dia:string>#author_id#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#number#</dia:string>
+            <dia:string>#integer#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -216,7 +216,7 @@
             <dia:string>#username#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar(30)#</dia:string>
+            <dia:string>#text#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -236,7 +236,7 @@
             <dia:string>#password#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar(16)#</dia:string>
+            <dia:string>#text#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -256,7 +256,7 @@
             <dia:string>#email#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar(30)#</dia:string>
+            <dia:string>#text#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -276,7 +276,7 @@
             <dia:string>#full_name#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar(50)#</dia:string>
+            <dia:string>#text#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -298,7 +298,7 @@
         <dia:point val="34.1,11.25"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="34.1,11.25;42.33,17.15"/>
+        <dia:rectangle val="34.1,11.25;42.715,17.15"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
@@ -307,7 +307,7 @@
         <dia:point val="34.1,11.25"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="8.2300000000000004"/>
+        <dia:real val="8.6150000000000002"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="5.9000000000000004"/>
@@ -363,10 +363,10 @@
       <dia:attribute name="attributes">
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#id_post#</dia:string>
+            <dia:string>#post_id#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#number#</dia:string>
+            <dia:string>#integer#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>#P.K#</dia:string>
@@ -383,10 +383,10 @@
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#id#</dia:string>
+            <dia:string>#author_id#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#number#</dia:string>
+            <dia:string>#integer#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>#F.K referencia ID tabela Autor#</dia:string>
@@ -403,10 +403,10 @@
         </dia:composite>
         <dia:composite type="table_attribute">
           <dia:attribute name="name">
-            <dia:string>#date#</dia:string>
+            <dia:string>#publish_date#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#data time#</dia:string>
+            <dia:string>#integer#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -426,7 +426,7 @@
             <dia:string>#title#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar(80)#</dia:string>
+            <dia:string>#text#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -446,7 +446,7 @@
             <dia:string>#content#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar#</dia:string>
+            <dia:string>#text#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>##</dia:string>
@@ -466,7 +466,7 @@
             <dia:string>#status#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#varchar(30)#</dia:string>
+            <dia:string>#integer#</dia:string>
           </dia:attribute>
           <dia:attribute name="comment">
             <dia:string>#C.K#</dia:string>
@@ -499,7 +499,7 @@
         <dia:point val="7.95,10.35"/>
         <dia:point val="43.05,10.35"/>
         <dia:point val="43.05,13.45"/>
-        <dia:point val="42.33,13.45"/>
+        <dia:point val="42.715,13.45"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="0"/>
