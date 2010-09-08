@@ -43,14 +43,21 @@ use ORLite {
             "insert into authors
                 (username, password, email, full_name)
             values
-                ('poste', 'fake password', 'poste\@blabos.org', 'Harry Poste');"
+                ('poste', 'fake password', 'poste\@blabos.org', 'Harry Poster');"
         );
         
         $dbh->do(
             "insert into posts
                 (author_id, publish_date, title, content, status)
              values
-                (1, 1234567890, 'First Post', 'Hello World!!!', 3);"
+                (1, 1234567890, 'First Post', '
+                <p>Hello World!!!</p>
+                <p>Este é o primeiro post e não diz nada com nada. Aproveite
+                para testar os temas.</p>
+                <p>Se os temas não funcionarem provavelmente deve estar ok
+                também, mas só por enquanto.</p>
+                <p>Mas pelo menos quatro parágrafos tem que ser vistos.</p>
+                ', 3);"
         );
         
         $dbh->do("insert into site_configs (key, value)
@@ -59,6 +66,14 @@ use ORLite {
         
         $dbh->do("insert into site_configs (key, value)
             values ('posts_per_page', '5');"
+        );
+        
+        $dbh->do("insert into site_configs (key, value)
+            values ('site_title', 'Poste');"
+        );
+        
+        $dbh->do("insert into site_configs (key, value)
+            values ('site_sub_title', 'O blog que dá a luz por cima');"
         );
     },
 };

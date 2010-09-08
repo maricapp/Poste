@@ -27,6 +27,8 @@ get '/' => sub {
     my $self = shift;
     
     $self->stash(
+        'site_title' =>Model::DB->get_site_config('site_title'),
+        'site_sub_title' =>Model::DB->get_site_config('site_sub_title'),
         'posts' => Model::DB->get_last_published_posts,
     );
     

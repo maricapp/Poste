@@ -1,7 +1,7 @@
 [% FOREACH post IN posts %]
     <div>
-        <strong>[% post.title %]</strong>, by [% post.author %]
-        published [% post.publish_date %]
+        <h1><a href="">[% post.title %]</a></h1>
+        <h2><a href="">[% post.author %]</a></h2>
         [% post.content %]
     </div>
 [% END %]
