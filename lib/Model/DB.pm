@@ -114,5 +114,35 @@ sub get_site_config {
     
     return $value;
 }
+sub get_post_by_id {
+    my $class = shift;
+    my $post_id = shift;
+    my $value = '';
+    
+    if ($class) {
+        my $pos = Model::DB::posts->load($post_id);
+        $value = $pos->value if defined $pos;
+    }
+    
+    return $value;
+}
+
+sub get_username {
+    my $class = shift;
+    my $tem = shift;
+    my $obj = {
+        'user' => undef
+    };
+    
+return Model::DB->selectall_arrayref(
+'select
+authors.username,
+from
+authors
+where
+$tem = authors.username '
+);
+
+}
 
 42;
