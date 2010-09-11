@@ -79,7 +79,7 @@ use ORLite {
 };
 
 sub get_last_published_posts {
-    my $self    = shift;
+    my $class   = shift;
     my $count   = shift || 5;
     my $offset  = shift || 0;
     
@@ -103,7 +103,7 @@ sub get_last_published_posts {
 }
 
 sub get_site_config {
-    my $self    = shift;
+    my $class   = shift;
     my $key     = shift || '';
     my $value   = '';
     
@@ -115,34 +115,24 @@ sub get_site_config {
     return $value;
 }
 sub get_post_by_id {
-    my $class = shift;
+    my $class   = shift;
     my $post_id = shift;
-    my $value = '';
     
-    if ($class) {
-        my $pos = Model::DB::posts->load($post_id);
-        $value = $pos->value if defined $pos;
-    }
+    my $post = Model::DB::Posts->load($post_id);
     
-    return $value;
+    return defined $post ? $post : {};
 }
 
-sub get_username {
-    my $class = shift;
-    my $tem = shift;
-    my $obj = {
-        'user' => undef
-    };
+sub get_author {
+    my $class       = shift;
+    my $username    = shift || '';
     
-return Model::DB->selectall_arrayref(
-'select
-authors.username,
-from
-authors
-where
-$tem = authors.username '
-);
-
+    my @users = Model::DB::Authors->select(
+        'where username = ?',
+        $username
+    );
+    
+    return scalar @users > 0 ? $users[0] : {};
 }
 
 42;

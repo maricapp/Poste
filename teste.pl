@@ -6,4 +6,4 @@ use Data::Dumper;
 
 use Model::DB;
 
-say Dumper(Model::DB->get_last_published_posts);
+say Dumper(Model::DB->get_author('poste'));
