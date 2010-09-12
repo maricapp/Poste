@@ -25,11 +25,11 @@ pre {
     background:yellow;
 }
 
-#menuAdm{
+/*#menuAdm{
 
     background:green;
 
-}
+}*/
 
 #content {
     background:#9cf
@@ -45,7 +45,7 @@ body {
 }
 
 
-#header, #menuAdm, #menu, #content, #paginator, #container {
+#header, /*#menuAdm,*/ #menu, #content, #paginator, #container {
     overflow:hidden;
     display:inline-block
 }
@@ -54,14 +54,15 @@ body {
     width:100%
 }
 
-#menuAdm, #content {
+/*#menuAdm,*/ #content {
     float:left
 }
 
+/*
 #menuAdm{
     width:10%
 }
-
+*/
 #content {
     width:100%
 }
