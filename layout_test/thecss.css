@@ -1,0 +1,67 @@
+
+html {
+    background:#c0f repeat-y 20% 0
+}
+
+body {
+    background:#f0c repeat-y 80% 0
+}
+
+pre {
+    white-space:pre
+}
+
+#header {
+    background:red;
+    text-align:center    
+}
+
+#menu {
+    background:#ffc;
+    color:#B90000;
+    text-align:left
+}
+
+#navigation{
+    background:yellow
+}
+
+#content {
+    background:#9cf
+}
+
+#footer {
+    background:#47B2D1;
+    text-align:center
+}
+
+body {
+    min-width:655px
+}
+
+
+#header, #menu, #navigation, #content, #footer {
+    overflow:hidden;
+    display:inline-block
+}
+
+#header, #navigation, #footer {
+    width:100%
+}
+
+#menu, #content {
+    float:left
+}
+
+#menu{
+    width:10%
+}
+
+#content {
+    width:90%
+}
+
+#footer {
+    clear:left
+}
+
