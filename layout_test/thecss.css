@@ -11,26 +11,31 @@ pre {
     white-space:pre
 }
 
+/*#container{
+    background:purple;
+}*/
+
 #header {
     background:red;
     text-align:center    
 }
 
-#menu {
-    background:#ffc;
-    color:#B90000;
-    text-align:left
+
+#menu{
+    background:yellow;
 }
 
-#navigation{
-    background:yellow
+#menuAdm{
+
+    background:green;
+
 }
 
 #content {
     background:#9cf
 }
 
-#footer {
+#paginator {
     background:#47B2D1;
     text-align:center
 }
@@ -40,28 +45,28 @@ body {
 }
 
 
-#header, #menu, #navigation, #content, #footer {
+#header, #menuAdm, #menu, #content, #paginator, #container {
     overflow:hidden;
     display:inline-block
 }
 
-#header, #navigation, #footer {
+#header, #menu, #paginator {
     width:100%
 }
 
-#menu, #content {
+#menuAdm, #content {
     float:left
 }
 
-#menu{
+#menuAdm{
     width:10%
 }
 
 #content {
-    width:90%
+    width:100%
 }
 
-#footer {
+#paginator {
     clear:left
 }
 
