@@ -1,40 +1,40 @@
 * {
-    padding: 10px;
-    border: solid black 1px;
-    font-family:Arial, Verdana, sans-serif
-    text-indent:50px;
-    font-size:16px;
+    padding: 5px;
+    border: solid black 0px;
+    font-family:Arial, Verdana, sans-serif;
+
 }
 
 html {
-    background-color: #f00;
+    background-color: #CCFFCC;
 
 }
 
 body {
-    background-color: #0f0;
+    background-color: #CCFFCC;
 }
 
+
 #container {
-    background-color: #00f;
+    background-color: #CCFFCC;
 }
 
 #header {
-    background-color: #ff0;
+    background-color: #6600FF;
     text-align: center; 
-   clear: both;
+    clear: both;
    
 }
 
 #menu{
-    background-color: #f0f;
-        color: #FF0099;  
+    background-color: #6666FF;
+    color: #FF0099;  
     clear: both;
 
 }
 
 #content {
-    background-color: #0ff;
+    background-color: #FFFFCC;
 }
 
 #paginator {
@@ -44,12 +44,34 @@ body {
 }
 
 .post{
-    color: red;
+    color: black;
     text-align:justify;
 }
 
-.post_title{
-    color:black;
-    text-align:center;
-    font-size:24px;    
+p{
+    text-indent:50px;
+    font-size:12pt;
 }
+
+.post_title{
+    color:red;
+    text-align:center;
+    font-size:24pt;    
+}
+
+a:link {
+    color:#FFFFFF;
+}      
+
+a:visited {
+    color:white;
+}  
+
+a:hover {
+    color:#FF00FF;
+}
+  
+a:active {
+    color:#0000FF;
+}
+
