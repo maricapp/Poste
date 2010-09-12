@@ -1,10 +1,14 @@
 * {
     padding: 10px;
     border: solid black 1px;
+    font-family:Arial, Verdana, sans-serif
+    text-indent:50px;
+    font-size:16px;
 }
 
 html {
     background-color: #f00;
+
 }
 
 body {
@@ -17,13 +21,16 @@ body {
 
 #header {
     background-color: #ff0;
-    text-align: center;
-    clear: both;
+    text-align: center; 
+   clear: both;
+   
 }
 
 #menu{
     background-color: #f0f;
+        color: #FF0099;  
     clear: both;
+
 }
 
 #content {
@@ -36,3 +43,13 @@ body {
     clear: both;
 }
 
+.post{
+    color: red;
+    text-align:justify;
+}
+
+.post_title{
+    color:black;
+    text-align:center;
+    font-size:24px;    
+}
