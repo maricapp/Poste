@@ -1,3 +1,6 @@
+* {
+    padding: 10px;
+}
 
 html {
     background:#c0f repeat-y 20% 0
@@ -11,9 +14,9 @@ pre {
     white-space:pre
 }
 
-/*#container{
+#container{
     background:purple;
-}*/
+}
 
 #header {
     background:red;
@@ -40,9 +43,7 @@ pre {
     text-align:center
 }
 
-body {
-    min-width:655px
-}
+body {}
 
 
 #header, #menuAdm, #menu, #content, #paginator, #container {
@@ -50,21 +51,15 @@ body {
     display:inline-block
 }
 
-#header, #menu, #paginator {
-    width:100%
-}
+#header, #menu, #paginator {}
 
 #menuAdm, #content {
     float:left
 }
 
-#menuAdm{
-    width:10%
-}
+#menuAdm{}
 
-#content {
-    width:100%
-}
+#content {}
 
 #paginator {
     clear:left
