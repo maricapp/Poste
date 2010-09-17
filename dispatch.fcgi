@@ -1,4 +1,9 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
+
+use lib qw{
+    /home/user/perl5/lib/perl5
+    /home/user/perl5/lib/perl5/x86_64-linux-gnu-thread-multi
+};
 
 use strict;
 use warnings;
@@ -34,8 +39,4 @@ get '/' => sub {
     
 } => 'home';
 
-get '/foo' => sub {
-    my $self = shift;
-} => 'home2';
-
-shagadelic;
+shagadelic('fastcgi');

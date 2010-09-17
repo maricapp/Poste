@@ -17,7 +17,6 @@ lib/Poste.pm
 Makefile
 Makefile.PL
 MANIFEST			This list of files
-MANIFEST.bak
 MANIFEST.SKIP
 META.yml
 public/css/bamboo.css

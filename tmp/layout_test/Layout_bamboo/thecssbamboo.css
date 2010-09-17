@@ -23,7 +23,10 @@ body {
     background-color: none;
     text-align: center; 
     clear: both;
-    linkcolor:
+}
+
+#header h1 {
+    font-size: 36pt;
 }
 
 #menu{

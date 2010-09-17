@@ -1,0 +1,5 @@
+<ul>
+    <li>
+        <a href="[% c.url_for('/') %]">Home</a>
+    </li>
+</ul>

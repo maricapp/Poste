@@ -7,6 +7,8 @@ license  'perl';
 
 build_requires 'Test::More';
 
+requires 'ORLite';
+
 auto_install;
 
 WriteAll;
