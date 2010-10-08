@@ -72,6 +72,31 @@ a {
     font-size: 14pt;
 }
 
+
+#login{
+
+    background: #b0b0b0;
+    margin-right:380px;
+    margin-left:330px;
+    text-align:justify;
+    padding: 5px;
+}
+
+fildset{
+    border:none;
+}
+
+form fildset label{
+    color:black;
+    display: block;
+    width: 235px;
+}
+
+form fildset label input{
+    width: 235px;
+    padding:2px;
+}
+
 #paginator {
     background: #888;
     text-align: center;
