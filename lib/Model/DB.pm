@@ -61,7 +61,7 @@ use ORLite {
         );
         
         $dbh->do("insert into site_configs (key, value)
-            values ('theme', 'default');"
+            values ('theme', 'bamboo');"
         );
         
         $dbh->do("insert into site_configs (key, value)

@@ -34,8 +34,8 @@ get '/' => sub {
     
 } => 'home';
 
-get '/foo' => sub {
+get '/login' => sub {
     my $self = shift;
-} => 'home2';
+} => 'login';
 
 shagadelic;
