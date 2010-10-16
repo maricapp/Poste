@@ -1,5 +1,6 @@
 <ul>
     <li>
         <a href="[% c.url_for('/') %]">Home</a>
+        Bem Vindo [% c.session('user') %] 
     </li>
 </ul>

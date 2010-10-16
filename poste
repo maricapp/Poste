@@ -6,29 +6,37 @@ use FindBin;
 use lib "$FindBin::Bin/lib";
 
 use Mojolicious::Lite;
+use Mojo::ByteStream 'b';
 use Model::DB;
 use Data::Dumper;
 
 
-my $posts_per_page  = Model::DB->get_site_config('posts_per_page');
-my $theme           = Model::DB->get_site_config('theme');
-my $template_dir    = app->home->rel_dir('themes');
-
-
-app->renderer->root($template_dir . '/' . $theme);
-plugin 'tt_renderer' => {
-    'template_options' => {
-        'INCLUDE_PATH' => app->renderer->root,
-        'WRAPPER' => 'index'
-    }
+ladder sub {
+    my $self = shift;
+    
+    my $posts_per_page  = Model::DB->get_site_config('posts_per_page');
+    my $theme           = Model::DB->get_site_config('theme');
+    my $template_dir    = app->home->rel_dir('themes');
+    
+    app->renderer->root($template_dir . '/' . $theme);
+    plugin 'tt_renderer' => {
+        'template_options' => {
+            'INCLUDE_PATH' => app->renderer->root,
+            'WRAPPER' => 'index'
+        }
+    };
+    
+    $self->stash(
+        'site_title' => Model::DB->get_site_config('site_title'),
+        'site_sub_title' => Model::DB->get_site_config('site_sub_title'),
+    );
 };
+
 
 get '/' => sub {
     my $self = shift;
     
     $self->stash(
-        'site_title' =>Model::DB->get_site_config('site_title'),
-        'site_sub_title' =>Model::DB->get_site_config('site_sub_title'),
         'posts' => Model::DB->get_last_published_posts,
     );
     
@@ -39,7 +47,27 @@ get '/login' => sub {
 } => 'login';
 
 post '/login' => sub {
+    my $self = shift;
+    my $user = $self->param('username') || '';
+    my $pass = $self->param('password') || '';
     
-} => 'home';
+    if ($user && $pass) {
+        my $author = Model::DB::Authors->select(
+            'where username = ? and password = ?',
+            $user,
+            b($pass)->md5_sum
+        );
+        
+        if (defined $author) {
+            $self->session(
+                'user' => $author->[0]->{'full_name'},
+            );
+            
+            return $self->redirect_to('home');
+        }
+    }
+    
+    $self->stash('login_error' => 1);
+} => 'login';
 
 shagadelic;
