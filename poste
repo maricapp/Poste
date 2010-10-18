@@ -52,16 +52,14 @@ post '/login' => sub {
     my $pass = $self->param('password') || '';
     
     if ($user && $pass) {
-        my $author = Model::DB::Authors->select(
+        my $authors = Model::DB::Authors->select(
             'where username = ? and password = ?',
             $user,
             b($pass)->md5_sum
         );
         
-        if (defined $author) {
-            $self->session(
-                'user' => $author->[0]->{'full_name'},
-            );
+        if (defined $authors) {
+            $self->session(%{$authors->[0]});
             
             return $self->redirect_to('home');
         }
@@ -69,5 +67,11 @@ post '/login' => sub {
     
     $self->stash('login_error' => 1);
 } => 'login';
+
+get '/logout' => sub {
+    my $self = shift;
+    $self->session('expires' => 1);
+    $self->redirect_to('home');
+};
 
 shagadelic;

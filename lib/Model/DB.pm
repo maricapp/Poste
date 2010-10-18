@@ -43,7 +43,7 @@ use ORLite {
             "insert into authors
                 (username, password, email, full_name)
             values
-                ('poste', 'fake password', 'poste\@blabos.org', 'Harry Poster');"
+                ('poste', 'e10adc3949ba59abbe56e057f20f883e', 'poste\@blabos.org', 'Harry Poster');"
         );
         
         $dbh->do(
