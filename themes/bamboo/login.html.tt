@@ -1,9 +1,9 @@
- <div id="login">
+<div id="login">
     <form action="[% c.url_for('/login') %]" method="post">
         <fildset>
-            <label>Login:<input type="text" name="username"/></label>
-            <label>Password:<input type="password" name="password"/></label> 
-            <input type="submit" value="Login" />
+            <label class="labellogin">Login:<input class="inputlogin" type="text" name="username"/></label>
+            <label class="labellogin">Password:<input class="inputlogin" type="password" name="password"/></label> 
+            <input class="botaologin" type="submit" value="Login" />
         </fildset>
     </form>
-</div>               
+</div> 
