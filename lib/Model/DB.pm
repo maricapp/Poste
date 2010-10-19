@@ -11,8 +11,7 @@ use ORLite {
         
         $dbh->do(
             'create table authors (
-                author_id       integer primary key autoincrement,
-                username        text not null,
+                username        text primary key,
                 password        text not null,
                 email           text not null,
                 full_name       text not null
@@ -22,12 +21,12 @@ use ORLite {
         $dbh->do(
             'create table posts (
                 post_id         integer primary key autoincrement,
-                author_id       integer not null,
+                username        integer not null,
                 publish_date    integer not null,
                 title           text not null,
                 content         text not null,
                 status          integer not null default 1,
-                foreign key (author_id) references authors(author_id)
+                foreign key (username) references authors(username)
                     on delete cascade
             );'
         );
@@ -48,9 +47,9 @@ use ORLite {
         
         $dbh->do(
             "insert into posts
-                (author_id, publish_date, title, content, status)
+                (username, publish_date, title, content, status)
              values
-                (1, 1234567890, 'First Post', '
+                ('poste', 1234567890, 'First Post', '
                 <p>Hello World!!!</p>
                 <p>Este é o primeiro post e não diz nada com nada. Aproveite
                 para testar os temas.</p>
@@ -89,13 +88,13 @@ sub get_last_published_posts {
             posts.publish_date,
             posts.title,
             posts.content,
-            authors.author_id,
+            authors.username,
             authors.full_name as author
         from
             posts, authors
         where
             posts.status = 3
-            and posts.author_id = authors.author_id
+            and posts.username = authors.username
         order by
             posts.publish_date desc',
         { Slice => {} },
