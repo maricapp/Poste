@@ -97,6 +97,44 @@ form fildset label input{
     padding:2px;
 }
 
+
+#newpost{
+    margin:0;
+    padding:0;  
+    border:none;
+    background:white;
+    width:800px;
+    font: 16px arial, tahoma, sans-serif;
+}
+    
+.newpostbotao{
+    margin:5px 5px;
+    cursor:pointer;
+    float:right;
+}
+
+.newpostlabel{
+    color:blue;
+    display:block;
+
+}
+
+.newpostinput{
+    width:800px;
+    padding:3px;
+    font: 16px arial, tahoma, sans-serif;
+
+}
+
+.newposttextarea{
+    width:800px;
+    height:400px;
+    font: 16px arial, tahoma, sans-serif;
+    padding:3px;
+}
+
+
+
 #paginator {
     background: #888;
     text-align: center;
