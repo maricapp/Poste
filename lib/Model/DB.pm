@@ -21,7 +21,7 @@ use ORLite {
         $dbh->do(
             'create table posts (
                 post_id         integer primary key autoincrement,
-                username        integer not null,
+                username        text not null,
                 publish_date    integer not null,
                 title           text not null,
                 content         text not null,
@@ -42,7 +42,7 @@ use ORLite {
             "insert into authors
                 (username, password, email, full_name)
             values
-                ('poste', 'e10adc3949ba59abbe56e057f20f883e', 'poste\@blabos.org', 'Harry Poster');"
+                ('poste', '123456', 'poste\@blabos.org', 'Harry Poster');"
         );
         
         $dbh->do(
