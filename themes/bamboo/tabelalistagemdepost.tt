@@ -1,0 +1,11 @@
+<div id="listpost">
+
+    <table>
+        <tr>
+            <td> <a href=''>Nome do post</a> </td>
+            <td> <a class='linkbotao' href=''>Update</a></td>
+            <td> <a class='linkbotao' href=''>Delete</a></td>
+        </tr>        
+    </table>    
+    
+</div>
