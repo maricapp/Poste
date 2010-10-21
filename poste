@@ -10,19 +10,19 @@ use Mojo::ByteStream 'b';
 use Model::DB;
 use Data::Dumper;
 
+sub theme { Model::DB->get_site_config('theme'); }
 
 ladder sub {
     my $self = shift;
     
     my $posts_per_page  = Model::DB->get_site_config('posts_per_page');
-    my $theme           = Model::DB->get_site_config('theme');
     my $template_dir    = app->home->rel_dir('themes');
     
-    app->renderer->root($template_dir . '/' . $theme);
+    app->renderer->root($template_dir);
     plugin 'tt_renderer' => {
         'template_options' => {
             'INCLUDE_PATH' => app->renderer->root,
-            'WRAPPER' => 'index'
+            'WRAPPER' => theme . '/index'
         }
     };
     
@@ -40,11 +40,11 @@ get '/' => sub {
         'posts' => Model::DB->get_last_published_posts,
     );
     
-} => 'home';
+} => theme . '/home';
 
 get '/login' => sub {
     my $self = shift;
-} => 'login';
+} => theme . '/login';
 
 post '/login' => sub {
     my $self = shift;
@@ -58,20 +58,35 @@ post '/login' => sub {
             b($pass)->md5_sum
         );
         
-        if (defined $authors) {
+        if (@$authors == 1) {
+            delete $authors->[0]->{'password'};
             $self->session(%{$authors->[0]});
             
-            return $self->redirect_to('home');
+            return $self->redirect_to('/');
         }
     }
     
     $self->stash('login_error' => 1);
-} => 'login';
+} => theme . '/login';
 
 get '/logout' => sub {
     my $self = shift;
     $self->session('expires' => 1);
-    $self->redirect_to('home');
+    $self->redirect_to('/');
 };
+
+
+## Área administrativa
+## Checa se o usuário está logado e redireciona se necessário
+#ladder sub {
+#    my $self = shift;
+#    return 1 if $self->session('username');
+#    $self->redirect_to('/login') and return;
+#};
+
+get '/admin/posts' => sub {
+    my $self = shift;
+    
+} => 'admin/posts';
 
 shagadelic;

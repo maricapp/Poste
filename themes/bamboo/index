@@ -22,11 +22,11 @@
     <body>
         <div id="container">
             <div id="header">
-                [% PROCESS 'header.tt' %]
+                [% PROCESS 'bamboo/header.tt' %]
             </div>
             
             <div id="menu">
-                [% PROCESS 'menu.tt' %]
+                [% PROCESS 'bamboo/menu.tt' %]
             </div>
             
             <div id="content">
@@ -34,7 +34,7 @@
             </div>
             
             <div id="footer">
-                [% PROCESS 'footer.tt' %]
+                [% PROCESS 'bamboo/footer.tt' %]
             </div>
         </div>
     </body>

@@ -5,7 +5,7 @@
     
     [% IF c.session('username') %]
 	    <li>
-	        Bem Vindo [% c.session('full_name') %]
+	        Olá [% c.session('full_name') %]!
 	        <a href="[% c.url_for('/logout') %]">Logout</a>
 	    </li>
 	[% END %]
