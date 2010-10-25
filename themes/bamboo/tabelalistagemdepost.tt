@@ -1,6 +1,6 @@
 <div id="listpost">
 
-    <table>
+    <table class='tablelistpost'>
         <tr>
             <td> <a href=''>Nome do post</a> </td>
             <td> <a class='linkbotao' href=''>Update</a></td>
