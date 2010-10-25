@@ -137,6 +137,47 @@ a {
     padding:3px;
 }
 
+#listpost{
+    font-family:arial,sans-serif;
+    margin:auto;
+    background:#DDDDDD;
+}
+
+.tablelistpost
+{
+    width:40%;
+    text-align:center;
+    height:50px;
+}
+
+.linkbotao:link{
+    background:#C7C5B9;
+    text-decoration:none;
+
+    color:black;    
+}
+
+.linkbotao:visited{
+    background:#C7C5B9;
+    border:1px;
+    text-decoration:none;
+
+    color:black;    
+}
+
+.linkbotao:hover{
+    background:#F3F3F3;
+    text-decoration:none;
+
+    color:black;    
+}
+
+.linkbotao:active{
+    background:#F3F3F3;
+    text-decoration:none;
+
+    color:black;    
+}
 
 
 #paginator {
