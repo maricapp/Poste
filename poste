@@ -1,0 +1,92 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/lib";
+
+use Mojolicious::Lite;
+use Mojo::ByteStream 'b';
+use Model::DB;
+use Data::Dumper;
+
+sub theme { Model::DB->get_site_config('theme'); }
+
+ladder sub {
+    my $self = shift;
+    
+    my $posts_per_page  = Model::DB->get_site_config('posts_per_page');
+    my $template_dir    = app->home->rel_dir('themes');
+    
+    app->renderer->root($template_dir);
+    plugin 'tt_renderer' => {
+        'template_options' => {
+            'INCLUDE_PATH' => app->renderer->root,
+            'WRAPPER' => theme . '/index'
+        }
+    };
+    
+    $self->stash(
+        'site_title' => Model::DB->get_site_config('site_title'),
+        'site_sub_title' => Model::DB->get_site_config('site_sub_title'),
+    );
+};
+
+
+get '/' => sub {
+    my $self = shift;
+    
+    $self->stash(
+        'posts' => Model::DB->get_last_published_posts,
+    );
+    
+} => theme . '/home';
+
+get '/login' => sub {
+    my $self = shift;
+} => theme . '/login';
+
+post '/login' => sub {
+    my $self = shift;
+    my $user = $self->param('username') || '';
+    my $pass = $self->param('password') || '';
+    
+    if ($user && $pass) {
+        my $authors = Model::DB::Authors->select(
+            'where username = ? and password = ?',
+            $user,
+            b($pass)->md5_sum
+        );
+        
+        if (@$authors == 1) {
+            delete $authors->[0]->{'password'};
+            $self->session(%{$authors->[0]});
+            
+            return $self->redirect_to('/');
+        }
+    }
+    
+    $self->stash('login_error' => 1);
+} => theme . '/login';
+
+get '/logout' => sub {
+    my $self = shift;
+    $self->session('expires' => 1);
+    $self->redirect_to('/');
+};
+
+
+## Área administrativa
+## Checa se o usuário está logado e redireciona se necessário
+#ladder sub {
+#    my $self = shift;
+#    return 1 if $self->session('username');
+#    $self->redirect_to('/login') and return;
+#};
+
+get '/admin/posts' => sub {
+    my $self = shift;
+    
+} => 'admin/posts';
+
+shagadelic;

@@ -1,0 +1,12 @@
+<ul id="navigation">
+    <li>
+        <a href="[% c.url_for('/') %]">Home</a>
+    </li>
+    
+    [% IF c.session('username') %]
+	    <li>
+	        Olá [% c.session('full_name') %]!
+	        <a href="[% c.url_for('/logout') %]">Logout</a>
+	    </li>
+	[% END %]
+</ul>

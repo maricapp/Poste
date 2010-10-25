@@ -1,0 +1,12 @@
+<div id="not_found">
+    <h1>E o bambú?</h1>
+    <p>Não encontrou o que procurava? Sem problema!</p>
+    <p>Que tal visitar a nossa
+        <a href="[% c.url_for('home') %]">Página Inicial</a>?</p>
+    <img src="/img/404.jpg" />
+    <p>Image by
+        <a href="http://www.flickr.com/photos/29765534@N03/2784639169/">
+            Luciano Negreiros
+        </a>
+    </p>
+</div>

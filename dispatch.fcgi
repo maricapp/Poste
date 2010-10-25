@@ -1,0 +1,42 @@
+#!/usr/bin/perl
+
+use lib qw{
+    /home/user/perl5/lib/perl5
+    /home/user/perl5/lib/perl5/x86_64-linux-gnu-thread-multi
+};
+
+use strict;
+use warnings;
+use FindBin;
+use lib "$FindBin::Bin/lib";
+
+use Mojolicious::Lite;
+use Model::DB;
+use Data::Dumper;
+
+
+my $posts_per_page  = Model::DB->get_site_config('posts_per_page');
+my $theme           = Model::DB->get_site_config('theme');
+my $template_dir    = app->home->rel_dir('themes');
+
+
+app->renderer->root($template_dir . '/' . $theme);
+plugin 'tt_renderer' => {
+    'template_options' => {
+        'INCLUDE_PATH' => app->renderer->root,
+        'WRAPPER' => 'index'
+    }
+};
+
+get '/' => sub {
+    my $self = shift;
+    
+    $self->stash(
+        'site_title' =>Model::DB->get_site_config('site_title'),
+        'site_sub_title' =>Model::DB->get_site_config('site_sub_title'),
+        'posts' => Model::DB->get_last_published_posts,
+    );
+    
+} => 'home';
+
+shagadelic('fastcgi');
