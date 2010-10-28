@@ -3,6 +3,9 @@
         <fildset>
             <label class="newpostlabel">Titulo do Novo Post: <input class="newpostinput" type="text"/></label>
             <label class="newpostlabel">Texto do Post:<textarea class="newposttextarea"></textarea></label>
+            <label class="newpostlabel">Data: <input type="text"  maxlength="2" name="dia" size="1"/> / 
+                                              <input type="text" maxlength="2" name="mes" size="1"/> / 
+                                              <input type="text" maxlength="4" name="ano" size="2"/> </label>
             <input class="newpostbotao" type="submit" name="publish" value="Publicar"/>
             <input class="newpostbotao" type="button" name="save" value="Salvar"/>
             <input class="newpostbotao" type="reset" name="cancel" value="Cancelar"/>
