@@ -4,9 +4,10 @@
     </li>
     
     [% IF c.session('username') %]
-	    <li>
-	        Olá [% c.session('full_name') %]!
-	        <a href="[% c.url_for('/logout') %]">Logout</a>
-	    </li>
-	[% END %]
+        <li>
+            <a href="[% c.url_for('/admin/posts') %]">Admin</a>
+        </li>
+    [% END %]
 </ul>
+
+    

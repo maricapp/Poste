@@ -1,11 +1,20 @@
-<div id="listpost">
-
-    <table class='tablelistpost'>
+<div id="post_list">
+    <table class="post_list_table">
         <tr>
-            <td> <a href=''>Nome do post</a> </td>
-            <td> <a class='linkbotao' href=''>Update</a></td>
-            <td> <a class='linkbotao' href=''>Delete</a></td>
-        </tr>        
-    </table>    
-    
+            <th>Post</th>
+            <th colspan="2">Action</th>
+        </tr>
+        
+        [% FOREACH post IN posts %]
+            <tr>
+                <td>
+                    <a href="[% c.url_for('/admin/posts/edit/' . post.id) %]">
+                        [% post.title %]
+                    </a>
+                </td>
+                <td><a class='linkbotao' href=''>Update</a></td>
+                <td><a class='linkbotao' href=''>Delete</a></td>
+            </tr>
+        [% END %]
+    </table>
 </div>

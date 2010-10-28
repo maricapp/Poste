@@ -13,6 +13,11 @@ a {
     color: white;
 }
 
+#container {
+    margin: auto;
+    width: 1000px;
+}
+
 #header {
     background-color: none;
     text-align: center; 
@@ -32,18 +37,20 @@ a {
 }
 
 #menu {
-    background-color: #004000;
     clear: both;
+    background-color: #004000;
     margin: 20px 0px 20px 0px;
-    padding-left: 250px;
+    padding: 0 250px 0 250px;
 }
 
 #menu ul {
     padding: 5px;
+    list-style: none;
 }
 
 #menu li {
-    list-style-type: none;
+    display: inline-block;
+    padding: 0px 10px 0px 10px;
 }
 
 #menu a {
@@ -56,9 +63,11 @@ a {
 }
 
 #content {
-    background-color: none;
-    margin: 20px 150px 20px 150px;
-    padding: 10px;
+    clear: none;
+    float: left;
+    width: 740px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     background-color: #ddd;
     color: black;
     text-align: justify;
@@ -70,6 +79,23 @@ a {
 
 #content h2 {
     font-size: 14pt;
+}
+
+#sidebar {
+    clear: none;
+    float: left;
+    width: 240px;
+    margin-left: 10px;
+    background-color: #ddd;
+}
+
+.widget {
+    margin: 10px;
+}
+
+.widget h1 {
+    text-align: center;
+    font-size: 12pt;
 }
 
 
@@ -210,6 +236,7 @@ p {
 }
 
 #footer {
+    clear: both;
     color: white;
     background-color: #004000;
     padding: 10px;
