@@ -1,12 +1,13 @@
-<ul id="navigation">
-    <li>
-        <a href="[% c.url_for('/') %]">Home</a>
-    </li>
-    
-    [% IF c.session('username') %]
-	    <li>
-	        Olá [% c.session('full_name') %]!
-	        <a href="[% c.url_for('/logout') %]">Logout</a>
-	    </li>
+<ul id="navigator">
+    <table class="tabelamenu">
+        <tr>
+            <td colspan="3"><a href="[% c.url_for('/') %]">Home</a></td>
+            <!-- arrumar para ficar apenas na hora de efetuar o login -->    
+            <td><a href="[% c.url_for('/login') %]">Login</a></td>   
+        [% IF c.session('username') %]
+	            <td>Bem Vindo [% c.session('full_name') %]!</td>
+	            <td><a class="logout" href="[% c.url_for('/logout') %]">Logout</a></td>
+	        <tr>
+	    </table>
 	[% END %]
 </ul>
