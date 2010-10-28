@@ -42,8 +42,25 @@ get '/' => sub {
     
 } => theme . '/home';
 
+get '/posts/(id)' => sub {
+    my $self    = shift;
+    my $id      = $self->param('id') || 0;
+    my $post    = Model::DB->get_post_by_id($id);
+    
+    if (exists $post->{'title'}) {
+        $self->stash(
+            'post' => $post
+        );
+    }
+    else {
+        $self->redirect_to('/not_found');
+    }
+} => theme . '/post';
+
 get '/login' => sub {
     my $self = shift;
+    
+    $self->redirect_to('/') if $self->session('username');
 } => theme . '/login';
 
 post '/login' => sub {
@@ -62,7 +79,7 @@ post '/login' => sub {
             delete $authors->[0]->{'password'};
             $self->session(%{$authors->[0]});
             
-            return $self->redirect_to('/');
+            return $self->redirect_to('/admin/posts');
         }
     }
     
@@ -87,6 +104,14 @@ get '/logout' => sub {
 get '/admin/posts' => sub {
     my $self = shift;
     
-} => 'admin/posts';
+    $self->stash(posts => [{
+        id => 123,
+        title => 'foo bar',
+    }]);
+} => 'admin/post_list';
+
+get '/admin/posts/edit/(id)' => sub {
+
+} => '/admin/edit_post';
 
 shagadelic;

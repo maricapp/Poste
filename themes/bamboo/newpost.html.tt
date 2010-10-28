@@ -1,0 +1,11 @@
+<div id="newpost">
+    <form action="% c.url_for('/newpost') %" method="get">
+        <fildset>
+            <label class="newpostlabel">Titulo do Novo Post: <input class="newpostinput" type="text"/></label>
+            <label class="newpostlabel">Texto do Post:<textarea class="newposttextarea"></textarea></label>
+            <input class="newpostbotao" type="submit" name="publish" value="Publicar"/>
+            <input class="newpostbotao" type="button" name="save" value="Salvar"/>
+            <input class="newpostbotao" type="reset" name="cancel" value="Cancelar"/>
+        </fildset>
+    </form>
+</div>

@@ -13,6 +13,11 @@ a {
     color: white;
 }
 
+#container {
+    margin: auto;
+    width: 1000px;
+}
+
 #header {
     background-color: none;
     text-align: center; 
@@ -32,18 +37,20 @@ a {
 }
 
 #menu {
-    background-color: #004000;
     clear: both;
+    background-color: #004000;
     margin: 20px 0px 20px 0px;
-    padding-left: 250px;
+    padding: 0 250px 0 250px;
 }
 
 #menu ul {
     padding: 5px;
+    list-style: none;
 }
 
 #menu li {
-    list-style-type: none;
+    display: inline-block;
+    padding: 0px 10px 0px 10px;
 }
 
 #menu a {
@@ -56,9 +63,11 @@ a {
 }
 
 #content {
-    background-color: none;
-    margin: 20px 150px 20px 150px;
-    padding: 10px;
+    clear: none;
+    float: left;
+    width: 740px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     background-color: #ddd;
     color: black;
     text-align: justify;
@@ -72,30 +81,130 @@ a {
     font-size: 14pt;
 }
 
+#sidebar {
+    clear: none;
+    float: left;
+    width: 240px;
+    margin-left: 10px;
+    background-color: #ddd;
+}
+
+.widget {
+    margin: 10px;
+}
+
+.widget h1 {
+    text-align: center;
+    font-size: 12pt;
+}
+
 
 #login{
-
-    background: #b0b0b0;
-    margin-right:380px;
-    margin-left:330px;
-    text-align:justify;
-    padding: 5px;
-}
-
-fildset{
+    margin: auto;
+    padding:0;
     border:none;
+    background: #b0b0b0;
+    width: 250px;
+    font: 16px arial, tahoma, sans-serif;    
 }
 
-form fildset label{
+.botaologin{
+    margin:5px 5px;
+    cursor:pointer;
+}
+
+.labellogin{
     color:black;
-    display: block;
+    display:block;
     width: 235px;
+    font: 16px arial, tahoma, sans-serif;
 }
 
-form fildset label input{
+.inputlogin{
     width: 235px;
-    padding:2px;
+    padding:3px;
+    font: 16px arial, tahoma, sans-serif;
 }
+
+
+#newpost{
+    margin:auto;
+    padding:0;  
+    border:none;
+    background:#DDDDDD;
+    width:850px;
+    text-align:left;
+    font: 16px arial, tahoma, sans-serif;
+}
+    
+.newpostbotao{
+    margin:5px 5px;
+    cursor:pointer;
+    
+}
+
+.newpostlabel{
+    color:#004000;
+    display:block;
+
+}
+
+.newpostinput{
+    width:800px;
+    padding:3px;
+    font: 16px arial, tahoma, sans-serif;
+
+}
+
+.newposttextarea{
+    width:800px;
+    height:400px;
+    font: 16px arial, tahoma, sans-serif;
+    padding:3px;
+}
+
+#listpost{
+    font-family:arial,sans-serif;
+    margin:auto;
+    background:#DDDDDD;
+}
+
+.tablelistpost
+{
+    width:40%;
+    text-align:center;
+    height:50px;
+}
+
+.linkbotao:link{
+    background:#C7C5B9;
+    text-decoration:none;
+
+    color:black;    
+}
+
+.linkbotao:visited{
+    background:#C7C5B9;
+    border:1px;
+    text-decoration:none;
+
+    color:black;    
+}
+
+.linkbotao:hover{
+    background:#F3F3F3;
+    text-decoration:none;
+
+    color:black;    
+}
+
+.linkbotao:active{
+    background:#F3F3F3;
+    text-decoration:none;
+
+    color:black;    
+}
+
 
 #paginator {
     background: #888;
@@ -127,6 +236,7 @@ p {
 }
 
 #footer {
+    clear: both;
     color: white;
     background-color: #004000;
     padding: 10px;
