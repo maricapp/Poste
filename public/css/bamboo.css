@@ -104,6 +104,7 @@ a {
     background-color: #ddd;
     color: black;
     text-align: justify;
+    min-height:300px;
 }
 
 #content a {
@@ -132,14 +133,40 @@ a {
     font-size: 12pt;
 }
 
+.widget a:link{
+    background:#DDD;
+    text-decoration:none;
+    color:black;    
+}
+
+.widget a:visited{
+    background:#DDD;
+    border:1px;
+    text-decoration:none;
+    color:black;    
+}
+
+.widget a:hover{
+    background:#888888;
+    text-decoration:none;
+    color:black;    
+}
+
+.widget a:active{
+    background:#888888;
+    text-decoration:none;
+    color:black;    
+}
+
 
 #login{
     margin: auto;
     padding:0;
     border:none;
-    background: #b0b0b0;
+    background: #DDDDDD;
     width: 250px;
-    font: 16px arial, tahoma, sans-serif;    
+    font: 16px arial, tahoma, sans-serif;
+    margin-top:75px;    
 }
 
 .botaologin{
