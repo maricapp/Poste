@@ -43,6 +43,7 @@ a {
     padding: 0 250px 0 250px;
 }
 
+
 #menu ul {
     padding: 5px;
     list-style: none;
@@ -62,11 +63,36 @@ a {
     color: white;
 }
 
+
+
 #navigator table.tabelamenu{
     width:80%;
     text-align:left;
     height:10px;
     border:5px solid; 
+}
+
+#adm_nav{
+    background-color: #888;
+    width:100%;
+}
+
+#adm_nav a:active{
+    color: black;
+}
+#adm_nav a:link{
+    color: black;
+}
+#adm_nav a:hover{
+    color: black;
+}
+#adm_nav a:visited{
+    color: black;
+}
+
+#adm_nav ul{
+    margin-left:50px;
+    padding:3px;    
 }
 
 #content {
@@ -94,6 +120,7 @@ a {
     width: 240px;
     margin-left: 10px;
     background-color: #ddd;
+    margin-bottom:10px;
 }
 
 .widget {
@@ -175,45 +202,43 @@ a {
     padding:3px;
 }
 
-#listpost{
+#post_list{
     font-family:arial,sans-serif;
-    margin:auto;
     background:#DDDDDD;
 }
 
-.tablelistpost
-{
-    width:40%;
-    text-align:center;
-    height:50px;
+
+.lenght_title{
+    width:590px;
 }
 
-.linkbotao:link{
-    background:#C7C5B9;
-    text-decoration:none;
+.lenght_action{
+    width:150px;
+    text-align:center;
+}
 
+.action:link{
+    background:#DDD;
+    text-decoration:none;
     color:black;    
 }
 
-.linkbotao:visited{
-    background:#C7C5B9;
+.action:visited{
+    background:#DDD;
     border:1px;
     text-decoration:none;
-
     color:black;    
 }
 
-.linkbotao:hover{
-    background:#F3F3F3;
+.action:hover{
+    background:#888888;
     text-decoration:none;
-
     color:black;    
 }
 
-.linkbotao:active{
-    background:#F3F3F3;
+.action:active{
+    background:#888888;
     text-decoration:none;
-
     color:black;    
 }
 
