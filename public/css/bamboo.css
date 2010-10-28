@@ -163,6 +163,11 @@ a {
 
 }
 
+.newpostdata{
+    padding:3px;
+    font: 16px arial, tahoma, sans-serif;
+}
+
 .newposttextarea{
     width:800px;
     height:400px;
