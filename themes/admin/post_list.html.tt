@@ -1,0 +1,29 @@
+<div id="post_list">
+    <table class="post_list_table" border="1">
+        <tr>
+            <th>Post</th>
+            <th colspan="3">Action</th>
+        </tr>
+        
+        [% FOREACH post IN posts %]
+            <tr>
+                <td>
+                    <a href="[% c.url_for('/admin/posts/edit') _ '/' _ post.id %]">
+                        [% post.title %]
+                    </a>
+                </td>
+                <td>
+                    <a href="[% c.url_for('/posts') _ '/' _ post.id %]">Ver</a>
+                </td>
+                
+                <td>
+                    <a href="[% c.url_for('/admin/posts/edit') _ '/' _ post.id %]">Editar</a>
+                </td>
+                
+                <td>
+                    <a href="[% c.url_for('/admin/posts/del') _ '/' _ post.id %]">Excluir</a>
+                </td>
+            </tr>
+        [% END %]
+    </table>
+</div>

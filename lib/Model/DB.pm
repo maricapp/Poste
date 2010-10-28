@@ -1,6 +1,10 @@
 package Model::DB;
 
+use strict;
+use warnings;
+
 use FindBin;
+use Data::Dumper;
 
 use ORLite {
     'file'      => "$FindBin::Bin/var/poste.db",
@@ -21,12 +25,12 @@ use ORLite {
         $dbh->do(
             'create table posts (
                 post_id         integer primary key autoincrement,
-                username        text not null,
+                author          text not null,
                 publish_date    integer not null,
                 title           text not null,
                 content         text not null,
                 status          integer not null default 1,
-                foreign key (username) references authors(username)
+                foreign key (author) references authors(username)
                     on delete cascade
             );'
         );
@@ -47,7 +51,7 @@ use ORLite {
         
         $dbh->do(
             "insert into posts
-                (username, publish_date, title, content, status)
+                (author, publish_date, title, content, status)
              values
                 ('poste', 1234567890, 'First Post', '
                 <p>Hello World!!!</p>
@@ -94,7 +98,7 @@ sub get_last_published_posts {
             posts, authors
         where
             posts.status = 3
-            and posts.username = authors.username
+            and posts.author = authors.username
         order by
             posts.publish_date desc',
         { Slice => {} },
@@ -117,9 +121,23 @@ sub get_post_by_id {
     my $class   = shift;
     my $post_id = shift;
     
-    my $post = Model::DB::Posts->load($post_id);
+    my $posts = Model::DB->selectall_arrayref(
+        'select
+            posts.post_id,
+            posts.publish_date,
+            posts.title,
+            posts.content,
+            authors.username,
+            authors.full_name as author
+        from
+            posts, authors
+        where
+            posts.post_id = ?',
+        { Slice => {} },
+        $post_id
+    );
     
-    return defined $post ? $post : {};
+    return length @$posts > 0 ? $posts->[0] : {};
 }
 
 sub get_author {

@@ -1,0 +1,8 @@
+<div class="widget">
+    [% IF c.session('username') %]
+        <h1><a href="[% c.url_for('/logout') %]">Logout</a></h1>
+        <p>Olá [% c.session('full_name') %]!</p>
+    [% ELSE %]
+        <h1><a href="[% c.url_for('/login') %]">Login</a></h1>
+    [% END %]
+</div>
