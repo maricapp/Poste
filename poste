@@ -1,5 +1,6 @@
 #!/usr/bin/env perl
 
+use 5.010;
 use strict;
 use warnings;
 use FindBin;
@@ -105,14 +106,46 @@ get '/logout' => sub {
 get '/admin/posts' => sub {
     my $self = shift;
     
-    $self->stash(posts => [{
-        id => 123,
-        title => 'foo bar',
-    }]);
+    $self->stash(posts => Model::DB->post_list());
 } => 'admin/post_list';
+
+get '/admin/posts/new' => sub {
+    my $self = shift;
+} => 'admin/post_edit';
+
+post '/admin/posts/edit' => sub {
+    my $self = shift;
+    
+    my $post_id     = $self->param('post_id');
+    my $author      = $self->session('username');
+    my $title       = $self->param('title')     || '';
+    my $content     = $self->param('content')   || '';
+    my $pub_date    = $self->param('pub_date')  || '';
+    my $status      = $self->param('status')    || '1';
+    
+    my $post = Model::DB::Posts->new(
+        'author'        => $author,
+        'publish_date'  => $pub_date,
+        'title'         => $title,
+        'content'       => $content,
+        'status'        => $status,
+        'post_id'       => $post_id,
+    );
+    
+    delete $post->{'post_id'} unless $post_id;
+    
+    say Dumper $post;
+    
+    if ($post->insert) {
+        $self->redirect_to('/posts/' . $post->{'post_id'});
+    }
+    else {
+        $self->stash('post' => $post);
+    }
+} => 'admin/post_edit';
 
 get '/admin/posts/edit/(id)' => sub {
 
-} => '/admin/edit_post';
+} => '/admin/post_edit';
 
 shagadelic;
