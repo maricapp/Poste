@@ -35,9 +35,10 @@ ladder sub {
 
 get '/' => sub {
     my $self = shift;
+    my $posts_per_page  = Model::DB->get_site_config('posts_per_page');
     
     $self->stash(
-        'posts' => Model::DB->get_last_published_posts,
+        'posts' => Model::DB->get_last_published_posts($posts_per_page),
     );
     
 } => theme . '/home';
