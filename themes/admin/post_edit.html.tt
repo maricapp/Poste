@@ -1,14 +1,18 @@
-<div id="newpost">
-    <form action="% c.url_for('/newpost') %" method="get">
+<div id="post_edit">
+    <form action="[% c.url_for('/admin/posts/edit') %]" method="post">
         <fildset>
-            <label class="newpostlabel">Titulo do Novo Post: <input class="newpostinput" type="text"/></label>
-            <label class="newpostlabel">Texto do Post:<textarea class="newposttextarea"></textarea></label>
-            <label class="newpostlabel">Data: <input class="newpostdata" type="text"  maxlength="2" name="dia" size="1"/> / 
-                                              <input class="newpostdata" type="text" maxlength="2" name="mes" size="1"/> / 
-                                              <input class="newpostdata" type="text" maxlength="4" name="ano" size="2"/> </label>
-            <input class="newpostbotao" type="submit" name="publish" value="Publicar"/>
-            <input class="newpostbotao" type="button" name="save" value="Salvar"/>
-            <input class="newpostbotao" type="reset" name="cancel" value="Cancelar"/>
+            <input name="title" class="post_edit_title" type="text" />
+            
+            <textarea name="content" class="post_edit_content"></textarea>
+            
+            <label for="pub_date" class="lb_post_edit">
+                Publicar em:
+                <input id="pub_date" name="pub_date" class="post_edit_date" type="text" />
+            </label>
+            
+            <input class="newpostbotao" type="submit" name="publish" value="Publicar" />
+            <input class="newpostbotao" type="button" name="save" value="Salvar" />
+            <input class="newpostbotao" type="reset" name="cancel" value="Cancelar" />
         </fildset>
     </form>
 </div>
