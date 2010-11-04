@@ -100,8 +100,25 @@ sub get_last_published_posts {
             posts.status = 3
             and posts.author = authors.username
         order by
-            posts.publish_date desc',
+            posts.publish_date desc
+        limit ?, ?',
         { Slice => {} },
+        $offset, $count,
+    );
+}
+sub get_post_list{
+    my $class  = shift;
+    my $username = shift;
+    my $limit  = shift || 5;
+    my $offset = shift ||0;
+    
+    return Model::DB::Posts->select(
+        'where 
+            $username = authors.username
+        order by
+            posts.publish_date desc
+        limit ?, ?',
+        $offset, $limit    
     );
 }
 
