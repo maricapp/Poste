@@ -188,14 +188,14 @@ a {
 }
 
 
-#newpost{
-    margin:auto;
-    padding:0;  
-    border:none;
-    background:#DDDDDD;
-    width:850px;
-    text-align:left;
-    font: 16px arial, tahoma, sans-serif;
+#post_edit {
+    margin: auto;
+    padding: 0;  
+    border: none;
+    background: #ddd;
+    width: 100%;
+    text-align: left;
+    position: relative;
 }
     
 .newpostbotao{
@@ -205,32 +205,34 @@ a {
 }
 
 .newpostlabel{
-    color:#004000;
-    display:block;
-
+    color: #004000;
+    display: block;
 }
 
-.newpostinput{
-    width:800px;
-    padding:3px;
-    font: 16px arial, tahoma, sans-serif;
-
+.post_edit_title {
+    width: 700px;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-.newpostdata{
-    padding:3px;
-    font: 16px arial, tahoma, sans-serif;
+.post_edit_date {
+    margin: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-.newposttextarea{
-    width:800px;
-    height:400px;
-    font: 16px arial, tahoma, sans-serif;
-    padding:3px;
+.post_edit_content {
+    width: 725px;
+    height: 400px;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #post_list{
     font-family:arial,sans-serif;
+    margin:auto;
     background:#DDDDDD;
 }
 
@@ -242,6 +244,7 @@ a {
 .lenght_action{
     width:150px;
     text-align:center;
+    height:50px;
 }
 
 .action:link{
