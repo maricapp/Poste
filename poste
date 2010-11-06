@@ -106,7 +106,12 @@ get '/logout' => sub {
 get '/admin/posts' => sub {
     my $self = shift;
     
-    $self->stash(posts => Model::DB->post_list());
+    $self->stash(
+        'posts' => Model::DB->get_post_list(
+            $self->session('username')
+        )
+    );
+    
 } => 'admin/post_list';
 
 get '/admin/posts/new' => sub {
