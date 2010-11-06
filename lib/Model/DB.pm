@@ -106,19 +106,19 @@ sub get_last_published_posts {
         $offset, $count,
     );
 }
-sub get_post_list{
-    my $class  = shift;
-    my $username = shift;
-    my $limit  = shift || 5;
-    my $offset = shift ||0;
+sub get_post_list {
+    my $class       = shift;
+    my $username    = shift;
+    my $limit       = shift || 5;
+    my $offset      = shift || 0;
     
     return Model::DB::Posts->select(
         'where 
-            $username = authors.username
+            author = ?
         order by
             posts.publish_date desc
         limit ?, ?',
-        $offset, $limit    
+        $username, $offset, $limit    
     );
 }
 
