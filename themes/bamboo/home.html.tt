@@ -1,7 +1,7 @@
 <div class="post">
 
     [% FOREACH post IN posts %]
-        <h1 class="post_title">[% post.title %]</h1>
+        <a href="[% c.url_for('/posts/') _ post.post_id %]"><h1 class="post_title">[% post.title %]</h1></a>
         <h2 class="post_sub_title">by [% post.author %]</h2>
         [% post.content %]
     [% END %]
