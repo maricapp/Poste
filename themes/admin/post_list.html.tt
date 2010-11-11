@@ -10,20 +10,20 @@
         [% FOREACH post IN posts %]
             <tr>
                 <td>
-                    <a href="[% c.url_for('/admin/posts/edit') _ '/' _ post.id %]">
+                    <a href="[% c.url_for('/admin/posts/edit') _ '/' _ post.post_id %]">
                         [% post.title %]
                     </a>
                 </td>
                 <td>
-                    <a class="action" href="[% c.url_for('/posts') _ '/' _ post.id %]">Ver</a>
+                    <a class="action" href="[% c.url_for('/posts') _ '/' _ post.post_id %]">Ver</a>
                 </td>
                 
                 <td>
-                    <a class="action" href="[% c.url_for('/admin/posts/edit') _ '/' _ post.id %]">Editar</a>
+                    <a class="action" href="[% c.url_for('/admin/posts/edit') _ '/' _ post.post_id %]">Editar</a>
                 </td>
                 
                 <td>
-                    <a class="action" href="[% c.url_for('/admin/posts/del') _ '/' _ post.id %]">Excluir</a>
+                    <a class="action" href="[% c.url_for('/admin/posts/del') _ '/' _ post.post_id %]">Excluir</a>
                 </td>
             </tr>
         [% END %]

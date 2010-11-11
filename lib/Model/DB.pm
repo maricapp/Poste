@@ -112,14 +112,16 @@ sub get_post_list {
     my $limit       = shift || 5;
     my $offset      = shift || 0;
     
-    return Model::DB::Posts->select(
-        'where 
-            author = ?
-        order by
-            posts.publish_date desc
-        limit ?, ?',
-        $username, $offset, $limit    
-    );
+    return [
+        Model::DB::Posts->select(
+            'where 
+                author = ?
+            order by
+                posts.publish_date desc
+            limit ?, ?',
+            $username, $offset, $limit    
+        )
+    ];
 }
 
 sub get_site_config {
