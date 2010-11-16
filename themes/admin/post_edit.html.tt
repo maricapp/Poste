@@ -1,9 +1,10 @@
 <div id="post_edit">
     <form action="[% c.url_for('/admin/posts/edit') %]" method="post">
         <fildset>
-            <input name="title" class="post_edit_title" type="text" />
+            <input type="hidden" name="post_id" value="[% post.post_id %]" />
+            <input name="title" class="post_edit_title" type="text" value="[% post.title %]" />
             
-            <textarea name="content" class="post_edit_content"></textarea>
+            <textarea name="content" class="post_edit_content">[% post.content %]</textarea>
             
             <label for="pub_date" class="lb_post_edit">
                 Publicar em:
