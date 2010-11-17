@@ -101,11 +101,11 @@ get '/logout' => sub {
 
 ## Área administrativa
 ## Checa se o usuário está logado e redireciona se necessário
-#ladder sub {
-#    my $self = shift;
-#    return 1 if $self->session('username');
-#    $self->redirect_to('/login') and return;
-#};
+ladder sub {
+    my $self = shift;
+    return 1 if $self->session('username');
+    $self->redirect_to('/login') and return;
+};
 
 get '/admin/posts' => sub {
     my $self = shift;
