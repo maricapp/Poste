@@ -152,7 +152,9 @@ sub get_post_by_id {
         from
             posts, authors
         where
-            posts.post_id = ?',
+            posts.post_id = ?
+            and posts.author = authors.username
+            ',
         { Slice => {} },
         $post_id
     );
