@@ -3,6 +3,8 @@
 use 5.010;
 use strict;
 use warnings;
+use utf8;
+
 use FindBin;
 use lib "$FindBin::Bin/lib";
 
@@ -12,6 +14,8 @@ use Model::DB;
 use Data::Dumper;
 
 sub theme { Model::DB->get_site_config('theme'); }
+
+sub utf8_decode { utf8::decode($_[0]); return $_[0]; }
 
 ladder sub {
     my $self = shift;
@@ -28,8 +32,8 @@ ladder sub {
     };
     
     $self->stash(
-        'site_title' => Model::DB->get_site_config('site_title'),
-        'site_sub_title' => Model::DB->get_site_config('site_sub_title'),
+        'site_title' => utf8_decode(Model::DB->get_site_config('site_title')),
+        'site_sub_title' => utf8_decode(Model::DB->get_site_config('site_sub_title')),
     );
 };
 
@@ -118,21 +122,25 @@ get '/admin/posts/new' => sub {
     my $self = shift;
 } => 'admin/post_edit';
 
-post '/admin/posts/edit/' => sub {
+post '/admin/posts/edit' => sub {
     my $self = shift;
     
-    my $post_id     = $self->param('post_id');
-    my $author      = $self->session('username');
-    my $title       = $self->param('title')     || '';
-    my $content     = $self->param('content')   || '';
-    my $pub_date    = $self->param('pub_date')  || '';
-    my $status      = $self->param('status')    || '1';
+    my $post_id     = $self->param('post_id')           || '';
+    my $author      = $self->session('username')        || 'poste';
+    my $title       = $self->param('title')             || '';
+    my $content     = $self->param('content')           || '';
+    my $pub_date    = $self->param('pub_date')          || '';
+    my $status      = $self->param('post_status')       || '1';
+    
+    if ($post_id) {
+        Model::DB::Posts->delete('where post_id = ?', $post_id);
+    }
     
     my $post = Model::DB::Posts->new(
         'author'        => $author,
         'publish_date'  => $pub_date,
-        'title'         => $title,
-        'content'       => $content,
+        'title'         => utf8_decode($title),
+        'content'       => utf8_decode($content),
         'status'        => $status,
         'post_id'       => $post_id,
     );

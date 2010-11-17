@@ -2,6 +2,7 @@ package Model::DB;
 
 use strict;
 use warnings;
+use utf8;
 
 use FindBin;
 use Data::Dumper;
