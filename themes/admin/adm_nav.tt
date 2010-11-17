@@ -1,5 +1,5 @@
 <div id="adm_nav">
     <ul>
-        <a href=""> Novo Post </a> 
+        <a href="[% c.url_for('/admin/posts/new') %]"> Novo Post </a> 
     </ul>
 </div>
