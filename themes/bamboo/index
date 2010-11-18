@@ -33,6 +33,10 @@
                 [% content %]
             </div>
             
+            <div id="sidebar">
+                [% PROCESS 'bamboo/sidebar.tt' %]
+            </div>
+            
             <div id="footer">
                 [% PROCESS 'bamboo/footer.tt' %]
             </div>

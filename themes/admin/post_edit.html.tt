@@ -1,0 +1,35 @@
+<div id="post_edit">
+    <form name="form_post_edit" action="[% c.url_for('/admin/posts/edit') %]" method="post">
+        <fildset>
+            <input type="hidden" name="post_id" value="[% post.post_id %]" />
+            <input type="hidden" name="post_status" value="1" />
+            <input name="title" class="post_edit_title" type="text" value="[% post.title %]" />
+            
+            <textarea name="content" class="post_edit_content">[% post.content %]</textarea>
+            
+            <label for="pub_date" class="lb_post_edit">
+                Publicar em:
+                <input id="pub_date" name="pub_date" class="post_edit_date" type="text" />
+            </label>
+            
+            <input class="newpostbotao" type="button" name="publish" value="Publicar" onclick="post_publish()" />
+            <input class="newpostbotao" type="button" name="save" value="Salvar" onclick="post_save()" />
+            <input class="newpostbotao" type="button" name="cancel" value="Cancelar" onclick="post_cancel()" />
+        </fildset>
+    </form>
+    
+    <script>
+        function post_publish() {
+            document.form_post_edit.post_status.value = 3;
+            document.form_post_edit.submit();
+        }
+        
+        function post_save() {
+            document.form_post_edit.submit();
+        }
+        
+        function post_cancel() {
+            document.location.href = "[% c.url_for('/admin/posts') %]";
+        }
+    </script>
+</div>

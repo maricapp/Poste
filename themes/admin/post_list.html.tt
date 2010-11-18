@@ -1,0 +1,31 @@
+[% PROCESS 'admin/adm_nav.tt' %]
+
+<div id="post_list" >
+    <table class="post_list_table">
+        <tr>
+            <th class="lenght_title">Post</th>
+            <th class="lenght_action" colspan="3">Action</th>
+        </tr>
+        
+        [% FOREACH post IN posts %]
+            <tr>
+                <td>
+                    <a href="[% c.url_for('/admin/posts/edit') _ '/' _ post.post_id %]">
+                        [% post.title %]
+                    </a>
+                </td>
+                <td>
+                    <a class="action" href="[% c.url_for('/posts') _ '/' _ post.post_id %]">Ver</a>
+                </td>
+                
+                <td>
+                    <a class="action" href="[% c.url_for('/admin/posts/edit') _ '/' _ post.post_id %]">Editar</a>
+                </td>
+                
+                <td>
+                    <a class="action" href="[% c.url_for('/admin/posts/del') _ '/' _ post.post_id %]">Excluir</a>
+                </td>
+            </tr>
+        [% END %]
+    </table>
+</div>
