@@ -12,6 +12,7 @@ use Data::Dumper;
 
 #Teste Metodo get_post_list
 
-my @list = Model::DB->get_post_list('poste');
+my $list_ref = Model::DB->get_post_list_ref('poste');
 
-ok($list[1]->{post_id} eq 1,'Teste de get_post_list');
+#die Dumper($list_ref);
+ok($list_ref->[0]->{post_id} eq 1,'Teste de get_post_list');
