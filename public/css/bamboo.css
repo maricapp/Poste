@@ -6,6 +6,9 @@
 
 body{
     background-image: url('/img/bamboo/bamboo.jpg');
+/*  background-repeat:repeat;
+    background-position:center bottom;
+    background-attachment:fixed;*/    
 }
 
 a{
@@ -174,6 +177,10 @@ a{
     margin-bottom:10px;
 }
 
+#sidebar p{
+    text-align:center;
+}
+
 /*   Wideget    */
 
 .widget {
@@ -266,6 +273,7 @@ a{
 .post_edit_title {
     width: 700px;
     padding: 3px;
+    margin-left:15px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -277,9 +285,10 @@ a{
 }
 
 .post_edit_content {
-    width: 725px;
-    height: 400px;
+    width: 700px;
+    height: 250px;
     padding: 3px;
+    margin-left:15px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
