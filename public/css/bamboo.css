@@ -73,21 +73,25 @@ a {
 }
 
 #adm_nav{
-    background-color: #888;
-    width:100%;
+    background-color: #004000;
+        width:100%;
+        font-weight: bold;
 }
 
 #adm_nav a:active{
-    color: black;
+
+    color: white;
 }
 #adm_nav a:link{
-    color: black;
+    background: #888888;
+    color: white;
 }
-#adm_nav a:hover{
-    color: black;
+#adm_nav a:hover{    
+    background: #888888;
+    color: white;
 }
 #adm_nav a:visited{
-    color: black;
+    color: white;
 }
 
 #adm_nav ul{
