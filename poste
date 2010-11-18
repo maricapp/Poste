@@ -103,7 +103,15 @@ get '/logout' => sub {
 ## Checa se o usuário está logado e redireciona se necessário
 ladder sub {
     my $self = shift;
-    return 1 if $self->session('username');
+    
+    if ($self->session('username')) {
+        $self->stash(
+            'site_title' => utf8_decode(Model::DB->get_site_config('site_title')),
+            'site_sub_title' => utf8_decode(Model::DB->get_site_config('site_sub_title')),
+        );
+        
+        return 1;
+    }
     $self->redirect_to('/login') and return;
 };
 
