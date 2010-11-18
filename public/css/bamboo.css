@@ -6,6 +6,9 @@
 
 body{
     background-image: url('/img/bamboo/bamboo.jpg');
+/*  background-repeat:repeat;
+    background-position:center bottom;
+    background-attachment:fixed;*/    
 }
 
 a{
@@ -172,6 +175,10 @@ a{
     margin-left: 10px;
     background-color: #ddd;
     margin-bottom:10px;
+}
+
+#sidebar p{
+    text-align:center;
 }
 
 /*   Wideget    */
