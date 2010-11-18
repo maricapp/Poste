@@ -169,7 +169,17 @@ get '/admin/posts/edit/(id)' => sub {
     $self->stash(
         'post'  => Model::DB->get_post_by_id($self->param('id'))
     );
-
 } => 'admin/post_edit';
+
+
+get '/admin/posts/del/(id)' => sub {
+    my $self = shift;
+    
+    my $post_id = $self->param('id');
+    
+    Model::DB::Posts->delete('where post_id = ?', $post_id);
+    
+    return $self->redirect_to('/admin/posts');
+} => 'admin/post_list';
 
 shagadelic;
