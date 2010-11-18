@@ -1,52 +1,43 @@
-*{
-    padding: 0px;
-    margin: 0px;
+html {
+	margin: 0;
+	padding: 0;
     font-family: Arial, Verdana, sans-serif;
+
 }
 
 body{
-    background-image: url('/img/bamboo/bamboo.jpg');
+    background:url('/img/poste.jpg') no-repeat top right;
+    background-color:#3F5FB4;
 }
-
-a{
-    text-decoration: none;
-    color: white;
-}
-
-/*   Conteiner    */
 
 #container {
+
     margin: auto;
     width: 1000px;
+
 }
 
-/*   Header    */
+#header{
 
-#header {
-    background-color: none;
-    text-align: center; 
-    clear: both;
+    background: url('/img/bamboofleur-design.jpg') no-repeat top center;
+    text-align: center;
+    width:100%; 
+    padding: 15px 15px 15px 0;
+
 }
 
-#header h1 {
-    font-size: 36pt;
-}
-
-#header a {
+#header a{
+    color: white;
+    font-size: 35px;
     text-decoration: none;
 }
 
-#header a:hover {
-    color: white;
-}
-
-/*   Menu    */
 
 #menu {
     clear: both;
-    background-color: #004000;
-    margin: 20px 0px 20px 0px;
-    padding: 0 250px 0 250px;
+    background-color:#3F5FB4;
+    margin: 0px 200px 40px 40px;
+    padding: 0 20px 0 20px;
 }
 
 
@@ -63,13 +54,9 @@ a{
 #menu a {
     text-decoration: none;
     font-weight: bold;
-}
-
-#menu a:hover {
     color: white;
 }
 
-/*   Navigator    */
 
 #navigator table.tabelamenu{
     width:80%;
@@ -79,25 +66,21 @@ a{
 }
 
 #adm_nav{
-    background-color: #004000;
-        width:100%;
-        font-weight: bold;
+    background-color: #3F5FB4;
+    width:100%;
 }
 
 #adm_nav a:active{
-
-    color: white;
+    color: black;
 }
 #adm_nav a:link{
-    background: #888888;
-    color: white;
+    color: black;
 }
-#adm_nav a:hover{    
-    background: #888888;
-    color: white;
+#adm_nav a:hover{
+    color: black;
 }
 #adm_nav a:visited{
-    color: white;
+    color: black;
 }
 
 #adm_nav ul{
@@ -105,54 +88,57 @@ a{
     padding:3px;    
 }
 
-/*   Content    */
-
 #content {
     clear: none;
     float: left;
     width: 740px;
     margin-right: 10px;
     margin-bottom: 10px;
-    background-color: #ddd;
-    color: black;
+    background-color:#3F5FB4;
+    color: white;
     text-align: justify;
     min-height:300px;
 }
 
 #content a {
-    color: blue;
+    color: white;
+    text-decoration: none;
 }
 
-#content h2 {
-    font-size: 14pt;
+#content a:hover{
+    text-decoration: underline;
 }
 
-/*   Post    */
+#content a:visited{
+    color:black;
+}
+
+#content ul{
+    margin: 0;
+	padding: 0;
+}
+
+#content li{
+  	line-height: 2.5ex; 
+	background: transparent; 
+	display: block; 
+	padding-top: 5px; 
+	margin-bottom: 5px;
+	list-style-type: none;
+}
 
 .post {
     margin-bottom: 10px;
 }
 
-.post p {
+p {
     text-indent: 50px;
     font-size: 12pt;
     margin: 10px;
 }
 
-.post ul{
-    margin-left: 100px;
-    list-style-type: disc;
-}
-
-/*.post tr, th, td{
-    border:1px solid black;
-    text-align:center;
-    padding:3px;
-}*/
-    
-
 .post_title {
-    color: red;
+    color: black;
     text-align: center;
     font-size: 20pt;    
 }
@@ -160,21 +146,19 @@ a{
 .post_sub_title {
     color: black;
     text-align: center;
-    font-size: 10pt;    
+    font-size: 13pt;    
 }
 
-/*   Sidebar    */
+
 
 #sidebar {
     clear: none;
     float: left;
     width: 240px;
     margin-left: 10px;
-    background-color: #ddd;
+    background-color: transparent;
     margin-bottom:10px;
 }
-
-/*   Wideget    */
 
 .widget {
     margin: 10px;
@@ -199,24 +183,24 @@ a{
 }
 
 .widget a:hover{
-    background:#888888;
+    background:#3F5FB4;
     text-decoration:none;
     color:black;    
 }
 
 .widget a:active{
-    background:#888888;
+    background:#3F5FB4;
     text-decoration:none;
     color:black;    
 }
 
-/*   Login    */
+
 
 #login{
     margin: auto;
     padding:0;
     border:none;
-    background: #DDDDDD;
+    background: #3F5FB4;
     width: 250px;
     font: 16px arial, tahoma, sans-serif;
     margin-top:75px;    
@@ -228,7 +212,7 @@ a{
 }
 
 .labellogin{
-    color:black;
+    color:white;
     display:block;
     width: 235px;
     font: 16px arial, tahoma, sans-serif;
@@ -240,13 +224,13 @@ a{
     font: 16px arial, tahoma, sans-serif;
 }
 
-/*   Post Edit    */
+
 
 #post_edit {
     margin: auto;
     padding: 0;  
     border: none;
-    background: #ddd;
+    background: #3F5FB4;
     width: 100%;
     text-align: left;
     position: relative;
@@ -284,54 +268,22 @@ a{
     margin-bottom: 5px;
 }
 
-/*   Post List    */
-
 #post_list{
-    font-family: arial,sans-serif;
-    margin: auto;
-    background: #DDDDDD;
+    font-family:arial,sans-serif;
+    margin:auto;
+    background:transparent;
 }
 
+
 .lenght_title{
-    width: 590px;
+    width:590px;
 }
 
 .lenght_action{
-    width: 150px;
-    text-align: center;
-    height: 50px;
+    width:150px;
+    text-align:center;
+    height:50px;
 }
-
-
-/*   Action    */
-
-.action:link{
-    background: #DDD;
-    text-decoration: none;
-    color:black;    
-}
-
-.action:visited{
-    background:#DDD;
-    border:1px;
-    text-decoration:none;
-    color:black;    
-}
-
-.action:hover{
-    background:#888888;
-    text-decoration:none;
-    color:black;    
-}
-
-.action:active{
-    background:#888888;
-    text-decoration:none;
-    color:black;    
-}
-
-
-/*   Paginator    */
 
 #paginator {
     background: #888;
@@ -340,23 +292,13 @@ a{
     padding: 5px;
 }
 
-/*   Footer    */
 
 #footer {
     clear: both;
     color: white;
-    background-color: #004000;
+    background-color: #293F92;
     padding: 10px;
     text-align: center;
 }
 
-/*   Not Found    */
 
-#not_found {
-    padding: 20px;
-    text-align: center;
-}
-
-#not_found a {
-    color: blue;
-}

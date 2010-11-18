@@ -107,7 +107,7 @@ sub get_last_published_posts {
         $offset, $count,
     );
 }
-sub get_post_list {
+sub get_post_list_ref {
     my $class       = shift;
     my $username    = shift;
     my $limit       = shift || 5;

@@ -119,7 +119,7 @@ get '/admin/posts' => sub {
     my $self = shift;
     
     $self->stash(
-        'posts' => Model::DB->get_post_list(
+        'posts' => Model::DB->get_post_list_ref(
             $self->session('username')
         )
     );
