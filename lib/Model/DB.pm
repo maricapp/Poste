@@ -118,7 +118,7 @@ sub get_post_list_ref {
             'where 
                 author = ?
             order by
-                posts.publish_date desc
+                posts.post_id desc
             limit ?, ?',
             $username, $offset, $limit    
         )
