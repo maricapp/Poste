@@ -101,7 +101,7 @@ sub get_last_published_posts {
             posts.status = 3
             and posts.author = authors.username
         order by
-            posts.publish_date desc
+            posts.post_id desc
         limit ?, ?',
         { Slice => {} },
         $offset, $count,
